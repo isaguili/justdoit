@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-z-font-smoothing: grayscale;
+}
+
+:root {
+  font-family: "Inter", sans-serif;
+
+  --background-primary: #F4F5FB;
+  --background-secondary: #FFFFFF;
+  
+  --color-brand: #CA3884;
+  --color-brand-hover: #A52C6B;
+  --color-danger: #C93847;
+
+  --content-primary: #080B12;
+  --content-secondary: #374151;
+  --content-tertiary: #9CA3AF;
+
+  --border-primary: #D1D5DB;
+  --border-secondary: #B9C2D0;
+}
+
+html {
+  font: 1rem/1.25rem 500;
+}
+
+body {
+  background-color: var(--background-primary);
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 375px;
+  margin-inline: auto;
+}
