@@ -13,6 +13,42 @@ const deleteMsgBnt = document.querySelector("#deleteMsg :last-child")
 const toggleBtn = document.getElementById("toggle-mode")
 const toggleBtnImg = document.querySelector("#toggle-mode img")
 
+//events
+toggleBtn.addEventListener("click", () => {
+  html.classList.toggle("dark-mode")
+  
+  const regex = /moon/
+  const isDark = regex.test(toggleBtnImg.src)
+
+  isDarkMode(isDark)
+})
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault()
+  createNewItem()
+  resetInput()
+})
+
+tasksList.addEventListener("click", (event) => {
+  const element = event.target
+  const isCheckbox = element.classList.contains('checkbox')
+  const isDeleteIcon = element.classList.contains('delete-btn')
+  
+  checkedOnOff(isCheckbox, element)
+  deleteTask(isDeleteIcon, element)
+})
+
+deleteMsgBnt.addEventListener("click", () => {
+  deleteMsg.classList.add("hide-msg")
+})
+
+resetButton.addEventListener("click", () => {
+  const check = confirm("Tem certeza que deseja apagar todas as tarefas?")
+
+  if(check){
+    tasksList.innerHTML = ''
+  }
+})
 
 //functions
 
