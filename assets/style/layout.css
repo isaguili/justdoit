@@ -1,37 +1,67 @@
+.container {
+  position: relative;
+}
 
 .container > img {
   display: none;
 }
 
+#toggle-mode{
+  position: absolute;
+  top: 0;
+  right: 0;
+ 
+  padding: .5rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: none;
+
+  cursor: pointer;
+
+  &:hover {
+    scale: 1.2;
+  }
+}
+
 header {
   gap: 1rem;
 
-  margin-block: 2.125rem 2.75rem;
+  margin-block: 2.5rem 2rem;
   font: 1.5rem/2rem 700;
+  color: #262626;
+
+  & > a {
+    width: 3.75rem;
+  }
+
+}
+
+button {
+  cursor: pointer;
+  font: inherit;
+
+  display: flex;
+  padding: 0.688rem 1.125rem;
+  justify-content: center;
+
+  border-radius: .75rem; 
+  border: 2px solid transparent;
+  background-color: var(--color-brand);
+  color: var(--background-primary);
+
+  &:hover {
+    background-color: var(--color-brand-hover);
+  }
+
+  &:focus {
+    background-color: var(--color-brand-hover);
+  }
 }
 
 form {
   gap: 1rem;
-  margin-bottom: 2.5rem;
-
-  & input, button {
-    padding: 0.6875rem 1.125rem;
-    border-radius: .75rem;  
-    font: inherit;
-  }
-
-  & button {
-    border: none;
-    background-color: var(--color-brand);
-    color: var(--background-primary);
-    cursor: pointer;
-
-    transition: .2s ease;
-
-    &:hover {
-      background-color: var(--color-brand-hover);
-    }
-  }
+  margin-bottom: 2rem;
 
   & .input-wrapper {
 
@@ -49,32 +79,29 @@ form {
 
     & input {
       width: 100%;
+      padding: 0.688rem 1.125rem;
+      border-radius: .75rem;  
+      
+      font: inherit;
+      color: var(--content-tertiary);
+      
       background-color: var(--background-secondary);
       border: 2px solid var(--border-primary);
-      color: var(--content-tertiary);
-      outline: none;
 
-      transition: .2s ease;
+      &::placeholder {
+        color: var(--content-secondary);
+      }
 
       &:hover {
-        cursor: pointer;
-        border-color: var(--border-primary-hover);
+        border-color: var(--color-brand-hover);
       }
-
-      &:focus {
-        border-color: var(--color-brand);
-        color: var(--content-primary);
-      }
-
-
     }
-    
   }
 }
 
-#itens {
+#tasks {
   gap: .75rem;
-  margin-bottom: 2.25rem;
+  margin-bottom: 2rem;
 
   & .item {
     display: flex;
@@ -86,41 +113,86 @@ form {
     border-radius: .75rem;
     background-color: var(--background-secondary);
    
-    color: var(--content-secondary);
+    color: var(--content-tertiary);
     font-weight: 500;
 
-    & :nth-child(3) {
+    & img:hover + span {
+      color: var(--content-primary);
+    }
+
+    & .checkbox:hover {
+      cursor: pointer;
+    }
+
+    & .delete-btn {
       margin-left: auto;
+      cursor: pointer;
+
+      &:hover {
+        scale: 1.1;
+      }
     }
   }
 }
 
-.alert {
-  display: flex;
+.hide-msg {
+  display: none;
+}
+
+.appear-msg {
+  animation: msg-appear .5s ease forwards;
+}
+
+#deleteMsg {
+  flex-direction: row;
   align-items: center;
+  
   padding: .75rem;
   gap: .5rem;
-  color: var(--background-secondary);
+  border-radius: .75rem;
   background-color: var(--color-danger);
-  font-weight: 500;
+  
+  color: white;
 
   & :nth-child(3) {
     margin-left: auto;
+    cursor: pointer;
+
+    &:hover {
+      scale: 1.1;
+    }
   }
 }
 
-.hide-item {
-  display: none;
+.checked {
+  text-decoration: line-through; 
+  color: var(--content-tertiary)
+}
+
+#reset-btn {
+  display: flex;
+  
+  padding: .5rem;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  
+  font-size: .875rem;
+  background-color: var(--color-brand);
+
+  &:hover {
+    background-color: var(--color-brand-hover);
+  }
 }
 
 @media (width>=70em) {
   .container {
-    max-width: 40rem;
+    max-width: 60rem;
   }
 
   .container > img {
     display: block;
-    margin: 1.5625rem auto 3.875rem;
+    width: 10rem;
+    margin-block: 2rem;
   }
 
   #my-form {
@@ -133,5 +205,14 @@ form {
     & .input-wrapper {
       width: calc(100% - 11rem);
     }
+  }
+}
+
+@keyframes msg-appear {
+  from {
+    transform: translateY(1.25rem);
+  }
+  to {
+    transform: translateY(-1.25rem);
   }
 }

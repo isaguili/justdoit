@@ -1,61 +1,71 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="dark-">
 <head>
 
+  <link rel="icon" type="image/x-icon" href="assets/icons/checkbox-selected.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quicklist</title>
+  <title>JustDoIt</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style/index.css">
 </head>
+
 <body>
   <div class="container">
+    <button id="toggle-mode">
+      <img src="assets/icons/moon.svg" alt="toggle-mode">
+    </button>
+
     <img src="assets/icons/logo.png" alt="logo da quicklist" class="desktop-only">
+
     <header class="flex">
       <a href="#" id="back-btn"><img src="assets/icons/link-button.svg" alt="botão de voltar"></a>
-      <h1>Compras da semana</h1>
+      <h1>Tarefas do dia</h1>
     </header>
 
     <form id="my-form" action="post" class="flex">
       <div class="input-wrapper">
-        <input type="text" name="insert-item" placeholder="Adicione um novo item">
-        <label for="insert-item">Adicione um novo item</label>
+        <input type="text" name="task-input" id="task-input" placeholder="Digite uma nova tarefa">
+        <label for="task-input">Digite uma nova tarefa</label>
       </div>
 
-      <button id="insert-item-btn">Adicionar item</button>
+    <button id="add-btn">Adicionar tarefa</button>
     </form>
 
-    <div id="itens" class="flex">
-      <div class="item">
-        <img src="assets/icons/checkbox-default.svg" alt="checkbox">
-        <span>Pão de forma</span>
-        <img src="assets/icons/delete.svg" alt="excluir item">
-      </div>
-      <div class="item">
-        <img src="assets/icons/checkbox-default.svg" alt="checkbox">
-        <span>Café preto</span>
-        <img src="assets/icons/delete.svg" alt="excluir item">
-      </div>
-      <div class="item">
-        <img src="assets/icons/checkbox-default.svg" alt="checkbox">
-        <span>Suco de laranja</span>
-        <img src="assets/icons/delete.svg" alt="excluir item">
-      </div>
-      <div class="item">
-        <img src="assets/icons/checkbox-default.svg" alt="checkbox">
-        <span>Bolacha</span>
-        <img src="assets/icons/delete.svg" alt="excluir item">
-      </div>
-    </div>
+    <ul id="tasks" class="flex">
+      <li class="item">
+        <img src="assets/icons/checkbox-default.svg" alt="checkbox" class="checkbox">
+        <span class="task-value">Levar carro para revisão</span>
+        <img src="assets/icons/delete.svg" alt="excluir item" class="delete-btn" title="Deletar tarefa">
+      </li>
+      <li class="item">
+        <img src="assets/icons/checkbox-default.svg" alt="checkbox" class="checkbox">
+        <span class="task-value">Renovar plano da academia</span>
+        <img src="assets/icons/delete.svg" alt="excluir item" class="delete-btn" title="Deletar tarefa">
+      </li>
+      <li class="item">
+        <img src="assets/icons/checkbox-default.svg" alt="checkbox" class="checkbox">
+        <span class="task-value">Pagar conta de internet</span>
+        <img src="assets/icons/delete.svg" alt="excluir item" class="delete-btn" title="Deletar tarefa">
+      </li>
+      <li class="item">
+        <img src="assets/icons/checkbox-default.svg" alt="checkbox" class="checkbox">
+        <span class="task-value">Agendar exames médicos</span>
+        <img src="assets/icons/delete.svg" alt="excluir item" class="delete-btn" title="Deletar tarefa">
+      </li>
+    </ul>
 
-    <div class="alert hide-item" class="flex">
+    <button id="reset-btn">Limpar lista</button>
+
+    <div class="flex hide-msg" id="deleteMsg">
       <img src="assets/icons/warning-circle.svg" alt="alerta">
         <span>O item foi removido da lista</span>
-        <img src="assets/icons/delete-small.svg" alt="excluir item">
+        <img src="assets/icons/delete-small.svg" alt="excluir item" title="Fechar">
     </div>
+
   </div>
 
   <script src="script.js"></script>

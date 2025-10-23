@@ -10,19 +10,19 @@
 :root {
   font-family: "Inter", sans-serif;
 
-  --background-primary: #F4F5FB;
-  --background-secondary: #FFFFFF;
-  
-  --color-brand: #CA3884;
-  --color-brand-hover: #A52C6B;
-  --color-danger: #C93847;
+  --background-primary: #F0F5F2;   
+  --background-secondary: #FFFFFF; 
 
-  --content-primary: #080B12;
-  --content-secondary: #374151;
-  --content-tertiary: #9CA3AF;
+  --color-brand: #2A9852;           
+  --color-brand-hover: #327749;     
+  --color-danger: #D9534F;          
 
-  --border-primary: #D1D5DB;
-  --border-secondary: #B9C2D0;
+  --content-primary: #E6E6E6;
+  --content-secondary: #B0B0B0;      
+  --content-tertiary: #8C8C8C;
+
+  --border-primary: #A7C4B5;        
+  --border-secondary: #7FA38F;
 }
 
 html {
@@ -41,4 +41,29 @@ body {
 .container {
   max-width: 375px;
   margin-inline: auto;
+}
+
+.dark-mode {
+  --background-primary: #1A1A1A;
+  --background-secondary: #262626;
+
+  --content-primary: #E6E6E6;
+  --content-secondary: #B0B0B0;
+  --content-tertiary: #8C8C8C;
+
+  --border-primary: #3E6B5B;
+  --border-secondary: #2F5A4A;
+
+  & h1 {
+    color: var(--content-secondary);
+  }
+
+}
+
+* {
+  transition: .2s ease;
+
+  &:focus{
+    outline: 2px solid var(--border-primary);
+  }
 }
