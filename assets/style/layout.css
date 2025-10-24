@@ -8,8 +8,10 @@
 
 #toggle-mode{
   position: absolute;
+  justify-content: center;
+  align-items: center;
   top: 0;
-  right: 0;
+  right: 2rem;
  
   padding: .5rem;
   width: 2rem;
