@@ -21,6 +21,10 @@
 
   cursor: pointer;
 
+  & > img {
+    width: 1rem;
+  }
+
   &:hover {
     scale: 1.2;
   }
@@ -85,13 +89,13 @@ form {
       border-radius: .75rem;  
       
       font: inherit;
-      color: var(--content-tertiary);
+      color: var(--content-primary);
       
       background-color: var(--background-secondary);
       border: 2px solid var(--border-primary);
 
       &::placeholder {
-        color: var(--content-secondary);
+        color: var(--content-tertiary);
       }
 
       &:hover {
@@ -115,11 +119,11 @@ form {
     border-radius: .75rem;
     background-color: var(--background-secondary);
    
-    color: var(--content-tertiary);
+    color: var(--content-primary);
     font-weight: 500;
 
     & img:hover + span {
-      color: var(--content-primary);
+      color: var(--content-tertiary);
     }
 
     & .checkbox:hover {
@@ -149,6 +153,10 @@ form {
   flex-direction: row;
   align-items: center;
   
+  position: absolute;
+  top: calc(100vh - 7rem);
+  width: calc(100% - 4rem);
+
   padding: .75rem;
   gap: .5rem;
   border-radius: .75rem;
@@ -215,6 +223,6 @@ form {
     transform: translateY(1.25rem);
   }
   to {
-    transform: translateY(-1.25rem);
+    transform: translateY(0);
   }
 }
