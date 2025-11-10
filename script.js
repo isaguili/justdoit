@@ -25,7 +25,13 @@ toggleBtn.addEventListener("click", () => {
 
 form.addEventListener("submit", (event) => {
   event.preventDefault()
-  createNewItem()
+
+  try {
+    createNewItem()
+  } catch (error) {
+    alert(error.message)
+  }
+  
   resetInput()
 })
 
@@ -71,7 +77,7 @@ function createNewItem(){
   newItem.setAttribute("class", "item")
 
   if(checkInputEmpty()) {
-    alert("Não é possível adicionar um item vazio.")
+    throw new Error("Não é possível adicionar um item vazio.")
   } else tasksList.append(newItem) 
 }
 
